@@ -1,8 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+import Welcome from '../components/Welcome';
+
+const Wrapper = styled.div``;
 
 const Home = () => {
     return (
-        <p>Welcome!</p>
+        <Wrapper>
+            <Welcome/>
+        </Wrapper>
     );
 };
 
