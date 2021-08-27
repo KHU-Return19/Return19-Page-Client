@@ -5,7 +5,7 @@ import next from '../assets/icons/next_arrow.svg';
 
 // constants
 const WEEKS_OF_YEAR = 52;
-const LAST_WEEK_OF_YEAR = 1;
+const IF_WEEK_GOES_NEXTYEAR = 1;
 
 const Calendar = () => {
   //dayjs
@@ -27,7 +27,7 @@ const Calendar = () => {
   const createCalendar = () => {
     const startWeek = viewDate.startOf('month').week();
     console.log(viewDate.endOf('month').week());
-    const lastWeek = viewDate.endOf('month').week() === LAST_WEEK_OF_YEAR ? WEEKS_OF_YEAR : viewDate.endOf('month').week();
+    const lastWeek = viewDate.endOf('month').week() === IF_WEEK_GOES_NEXTYEAR ? WEEKS_OF_YEAR + 1 : viewDate.endOf('month').week();
     let calender = [];
 
 
