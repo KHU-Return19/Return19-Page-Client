@@ -172,7 +172,7 @@ const StyledCalendarBody = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background : pink;
+background : lightgrey;
     font-weight: 700;
     color: #fff;
   }
@@ -183,7 +183,7 @@ const StyledCalendarBody = styled.div`
   }
   .isSelected{
     position: relative;
-    color: pink;
+    color: ligtgrey;
     font-size: 10px;
     font-weight: 400;
   }
