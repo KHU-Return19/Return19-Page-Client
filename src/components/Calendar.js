@@ -17,11 +17,10 @@ dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 
 
-const Calendar = () => {
+const Calendar = ({selectDate, setSelectDate}) => {
 
   const today = dayjs();
   const [viewDate, setViewDate] = useState(dayjs());
-  const [selectDate, setSelectDate] = useState(dayjs());
 
   const createCalendar = () => {
     const startWeek = viewDate.startOf('month').week();
