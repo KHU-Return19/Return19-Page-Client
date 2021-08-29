@@ -11,7 +11,7 @@ const Modal = (props) => {
             {isOpen ? (
                 <div className="modalContainer">
                     <div className="content">{children}</div>
-                    <div classname="footer">
+                    <div className="footer">
                         <Button color="lightgrey" onClick={close}>Close</Button>
                     </div>
                 </div>   
@@ -57,13 +57,6 @@ const StyledModal = styled.div`
     .footer {
         padding: 12px 16px;
         text-align: right;
-    }
-    .footer button {
-        padding: 6px 12px;
-        color: #fff;
-        background-color: #6c757d;
-        border-radius: 5px;
-        font-size: 13px;
     }
     .openedModal {
         display: flex;
