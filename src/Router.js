@@ -10,11 +10,11 @@ import Auth from "./hoc/auth"
 const Router = () => {
     return (
         <Switch>
-            <Route exact path="/" component={Auth(Home, null)} />
+            <Route exact path="/" component={Auth(Home, true)} />
             <Route exact path="/LandingPage" component={Auth(LandingPage, false)} />
             <Route exact path="/signup" component={Auth(SignUpPage, false)} />
             <Route exact path="/login" component={Auth(LoginPage, false)} />
-            <Route exact path="/members" component={Auth(MemberPage,false)} />
+            <Route exact path="/members" component={Auth(MemberPage,true)} />
             <Route exact path="/profile" component={Auth(ProfilePage,true)} />
 
             <Route path="/">404 not found</Route>
