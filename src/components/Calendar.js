@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import previous from '../assets/icons/previous_arrow.svg';
 import next from '../assets/icons/next_arrow.svg';
+import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
+import isoWeek from 'dayjs/plugin/isoWeek';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 
 // constants
 const WEEKS_OF_YEAR = 52;
 const IF_WEEK_GOES_NEXTYEAR = 1;
 
-const Calendar = () => {
-  //dayjs
-  const dayjs = require('dayjs');
-  const weekday = require('dayjs/plugin/weekday');
-  const isoWeek = require('dayjs/plugin/isoWeek');
-  const weekOfYear = require('dayjs/plugin/weekOfYear');
+// dayjs extend
+dayjs.extend(weekday);
+dayjs.extend(isoWeek);
+dayjs.extend(weekOfYear);
 
-  // dayjs extend
-  dayjs.extend(weekday);
-  dayjs.extend(isoWeek);
-  dayjs.extend(weekOfYear);
+
+const Calendar = () => {
 
   const today = dayjs();
   const [viewDate, setViewDate] = useState(dayjs());
