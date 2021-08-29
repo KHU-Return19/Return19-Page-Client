@@ -23,10 +23,8 @@ const Calendar = () => {
   const [viewDate, setViewDate] = useState(dayjs());
   const [selectDate, setSelectDate] = useState(dayjs());
 
-
   const createCalendar = () => {
     const startWeek = viewDate.startOf('month').week();
-    console.log(viewDate.endOf('month').week());
     const lastWeek = viewDate.endOf('month').week() === IF_WEEK_GOES_NEXTYEAR ? WEEKS_OF_YEAR + 1 : viewDate.endOf('month').week();
     let calender = [];
 
@@ -46,7 +44,7 @@ const Calendar = () => {
             return (
               <>
                 <div className={`box`} key={`${week}_${i}`} >
-                  <div className={`text ${isSelected} ${isToday} ${isNone}`} onClick={() => { setSelectDate(current) }}>
+                  <div className={`text ${isSelected} ${isToday} ${isNone}`} onClick={() => setSelectDate(current)}>
                     <span className={`day`}>{current.format('D')}</span>
                     {isToday ? (<span className="isToday">Today</span>)
                       : isSelected ? (<span className="isSelected"></span>) : null}
