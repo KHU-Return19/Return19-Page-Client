@@ -1,39 +1,50 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
-const LoginForm = (props)=>{
-    const { email, password, handleInput, onSubmitHandler } = props;
+const SignupForm = (props)=>{
+    const { inputs, handleInput, onSubmitHandler } = props;
+    const {name, email, password, confirmPassword } = inputs;
+
     return(
         <>
-        <StyleLoginForm>
-            <div class="loginForm">
-                <h2 class="headerTitle">Login</h2>
+        <StyleSignupForm>     
+            <div class="signupForm">  
+                <h2 class="headerTitle">SignUp</h2>
                 <form onSubmit={onSubmitHandler}>
                     <div class="row">
                         <label>Email</label>
                         <input type="email" value={email} onChange={handleInput("email")} placeholder="Enter your Email" required />
                     </div>
                     <div class="row">
+                        <label>Name</label>
+                        <input type="text" value={name} onChange={handleInput("name")} placeholder="Enter your Name" required /> 
+                    </div>
+                    <div class="row">
                         <label>Password</label>
-                        <input type="password" value={password} onChange={handleInput("password")} placeholder="Enter your password" required/>
+                        <input type="password" value={password} onChange={handleInput("password")} placeholder="Enter your Password" required/>
                     </div>
-                    
+                    <div class="row">
+                        <label>Confirm Password</label>
+                        <input type="password" value={confirmPassword} onChange={handleInput("confirmPassword")} placeholder="Confirm Password" required/>
+                    </div> 
                     <div class="button row">
-                    <button type="submit">Log in</button>
+                        <button type="submit">Sign Up</button>
                     </div>
-                </form>
-                <div class="signupbtn row">     
-                    <button><Link to = "/signup">Sign up</Link></button>
+
+                 </form>
+                 <div class ="loginbtn row">     
+                    <button><Link to = "/login">Log in</Link></button>
                 </div>
-            </div>
-        </StyleLoginForm>
+             </div>
+
+        </StyleSignupForm>
         </>
     )
 }
 
-export default LoginForm
+export default SignupForm
 
-const StyleLoginForm = styled.div`
+const StyleSignupForm = styled.div`
     @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
     html {
     font-size: 100%;
@@ -42,7 +53,7 @@ const StyleLoginForm = styled.div`
     font-family: "Noto Sans KR", sans-serif;
     }
 
-    .loginForm {
+    .signupForm {
     max-width: 500px;
     min-width: 300px;
     max-height: 700px;
@@ -129,7 +140,7 @@ const StyleLoginForm = styled.div`
     padding-bottom: 0.1rem;
     }
     
-    .signupbtn button{
+    .loginbtn button{
         background: rgb(202, 151, 11) ;
         background: linear-gradient(
             90deg,

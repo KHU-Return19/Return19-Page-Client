@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+test {
+  background: rgb(102, 100, 219);
+  background: linear-gradient(
+    90deg,
+    rgb(96, 35, 175) 0%,
+    rgb(38, 136, 201) 100%
+  );
+}

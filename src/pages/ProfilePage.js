@@ -30,7 +30,7 @@ const ProfilePage = (props) =>{
             .then(response =>{
                 if(response.data.success){
                     setEmail(response.data.user.email)
-                    setBirthday(response.data.user.birthday.slice(0,10))
+                    setBirthday(response.data.user.birthday)
                     setName(response.data.user.name)
                     setBio(response.data.user.bio)
                     setUrl(response.data.user.url)
