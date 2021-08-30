@@ -7,10 +7,13 @@ export default function (SpecificComponent, option, adminRoute = null) {
       
         useEffect(() => {
             axios.get("/api/user/auth").then(response => {
-                console.log(response)
                 if (!response.data.isAuth) {
-                    const isAuth = response.data.isAuth;
-                    isAuth ? (!option && props.history.push('/')) : (option && props.history.push('/LandingPage'))
+                    if (option) {
+                        props.history.push('/LandingPage')
+                    }
+                } else {
+                    if (option === false)
+                            props.history.push('/')
                 }
             })
         }, [])

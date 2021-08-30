@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router';
+import LoginForm from '../components/LoginForm';
+import styled from "styled-components"
+
 const LoginPage = (props) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const onEmailHandler = (event) =>{
-        setEmail(event.currentTarget.value)
-    }
-
-    const onPasswordHandler = (event) =>{
-        setPassword(event.currentTarget.value)
+    const handleInput = (type) => (event) => {
+        const targetval = event.currentTarget.value;
+        type === ("email") ? (setEmail(targetval)) : (setPassword(targetval));
     }
 
 
@@ -37,14 +37,16 @@ const LoginPage = (props) => {
 
     }
     return (
-        <div>
-            <form onSubmit={onSubmitHandler}>
-                <input type="email" value={email} onChange={onEmailHandler} />
-                <input type="password" value={password} onChange={onPasswordHandler}/>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+        <>
+            <LoginForm 
+                email={email}
+                passowrd={password}
+                handleInput={handleInput}
+                onSubmitHandler={onSubmitHandler}
+            />
+        </>
     )
 };
 
 export default withRouter(LoginPage)
+
