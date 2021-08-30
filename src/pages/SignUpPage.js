@@ -40,7 +40,7 @@ const SignupPage = (props) =>{
             birthday : birthday
         }
 
-        axios.post("/api/users/signup",body)
+        axios.post("/api/user/signup",body)
         .then((response)=>{
             if(response.data.success){
                 props.history.push("/login")
