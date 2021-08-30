@@ -6,19 +6,11 @@ export default function (SpecificComponent, option, adminRoute = null) {
     function AuthenticationCheck(props) {
       
         useEffect(() => {
-            axios.get("/api/users/auth").then(response => {
+            axios.get("/api/user/auth").then(response => {
                 console.log(response)
                 if (!response.data.isAuth) {
-                    if (option) {
-                        props.history.push('/LandingPage')
-                    }
-                } else {
-                    if (adminRoute && !response.payload.isAdmin) {
-                        props.history.push('/')
-                    } else {
-                        if (option === false)
-                            props.history.push('/')
-                    }
+                    const isAuth = response.data.isAuth;
+                    isAuth ? (!option && props.history.push('/')) : (option && props.history.push('/LandingPage'))
                 }
             })
         }, [])

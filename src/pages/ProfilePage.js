@@ -26,7 +26,7 @@ const ProfilePage = (props) =>{
     }
  
     useEffect(() =>{
-            axios.get("/api/users/profile")
+            axios.get("/api/user/profile")
             .then(response =>{
                 if(response.data.success){
                     setEmail(response.data.user.email)
@@ -52,7 +52,7 @@ const ProfilePage = (props) =>{
 
         }
 
-        axios.post("/api/users/profile/update",body)
+        axios.post("/api/user/profile/update",body)
         .then((response)=>{
             console.log(response)
             if(response.data.success){
@@ -67,7 +67,7 @@ const ProfilePage = (props) =>{
     }
 
     const logoutHandler= (event)=>{
-        axios.get("/api/users/logout")
+        axios.get("/api/user/logout")
         .then((response)=>{
             console.log(response)
             if(response.data.success){

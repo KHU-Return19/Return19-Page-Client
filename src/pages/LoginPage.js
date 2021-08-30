@@ -23,7 +23,7 @@ const LoginPage = (props) => {
             password : password
         }
 
-        axios.post("/api/users/login",body)
+        axios.post("/api/user/login",body)
         .then((response)=>{
             if(response.data.success){
                 props.history.push("/")

@@ -12,6 +12,7 @@ const MemberPage = (props) =>{
                 }
                 
             })
+            .catch((error)=>{console.log(error)})
     }, [])
     return(
         <div>{JSON.stringify(members)}</div>
