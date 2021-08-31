@@ -74,6 +74,10 @@ const ProfileForm = (props)=>{
 export default ProfileForm
 
 const StyleProfileForm = styled.div`
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+    font-family: "Noto Sans KR", sans-serif;
+    }
     .profileBox{
         width:700px;
         margin: 100px auto;
