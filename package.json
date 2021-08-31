@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "bootstrap-styled": "^2.7.2",
+    "dayjs": "^1.10.6",
     "http-proxy-middleware": "^2.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",

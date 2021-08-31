@@ -15,10 +15,10 @@ const StyledButton = styled.button`
 `;
 
 
-const Button = ({ children, color }) => {
+const Button = (props) => {
     return (
-        <StyledButton color={color}>
-            {children}
+        <StyledButton color={props.color} onClick={props.onClick}>
+            {props.children}
         </StyledButton>
     )
 }

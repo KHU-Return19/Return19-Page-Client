@@ -7,6 +7,8 @@ import LoginPage from './pages/LoginPage';
 import MemberPage from './pages/MemberPage';
 import ProfilePage from './pages/ProfilePage';
 import Auth from "./hoc/auth"
+import CalendarPage from './pages/CalendarPage';
+
 const Router = () => {
     return (
         <Switch>
@@ -16,7 +18,8 @@ const Router = () => {
             <Route exact path="/login" component={Auth(LoginPage, false)} />
             <Route exact path="/members" component={Auth(MemberPage,true)} />
             <Route exact path="/profile" component={Auth(ProfilePage,true)} />
-
+            <Route exact path="/CalendarPage" component={CalendarPage} />
+              
             <Route path="/">404 not found</Route>
         </Switch>
     );
