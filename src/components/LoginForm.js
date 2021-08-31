@@ -19,11 +19,11 @@ const LoginForm = (props)=>{
                     </div>
                     
                     <div class="authFormBtn authFormBtn1 authFormRow">
-                    <button type="submit">Log in</button>
+                    <button type="submit">Log In</button>
                     </div>
                 </form>
                 <div class="authFormBtn authFormBtn2 authFormRow">     
-                    <button><Link to = "/signup">Sign up</Link></button>
+                <Link to = "/signup"><button>Sign up</button></Link>
                 </div>
             </div>
         </StyleLoginForm>
@@ -58,6 +58,7 @@ export default LoginForm
     margin: 0;
     font-size: 2rem;
     font-weight: 700;
+    color:#1e1e1e
 
     }
 
@@ -81,7 +82,7 @@ export default LoginForm
     }
 
     .authFormRow input:focus {
-    box-shadow: inset 0px -3px 0px 0px rgba(144, 30, 167);
+    box-shadow: inset 0px -3px 0px 0px #91A8D1;
     outline: none;
     }
 
@@ -109,11 +110,11 @@ export default LoginForm
     font-size: 1.3rem;
     color: white;
     font-weight: 600;
-    background: rgb(117, 17, 156);
+    background: #91A8D1;
     background: linear-gradient(
         90deg,
-        rgba(74, 46, 177) 0%,
-        rgba(144, 30, 167) 100%
+        #91A8D1 0%,
+        #F6CAC9 100%
     );
     border: 0px;
     cursor: pointer;
@@ -130,12 +131,11 @@ export default LoginForm
     }
 
     .authFormBtn2 button{
-        
-        background: rgb(202, 151, 11) ;
+        background: #91A8D1 ;
         background: linear-gradient(
-            90deg,
-            rgba(47, 44, 218) 30%,
-            rgba(38, 136, 201) 100%
+            45deg,
+            #a691c0 0%,
+            #91A8D2 100%
         );
     }
     .authFormBtn2{
@@ -149,6 +149,9 @@ export default LoginForm
     }
     .authFormBtn1 {
         padding-top:2rem;
+    }
+    button{
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     }
 
 `;

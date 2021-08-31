@@ -12,48 +12,48 @@ const ProfileForm = (props)=>{
         <>
             <StyleProfileForm>     
                             <div class="profileBox">
-                                <div class="userCard user-userCard-full profileContainer">
+                                <div class="userCard profileContainer">
                                         <div class="userProfile">
-                                            <div class="userCardBlock1 text-center text-white">
-                                                <div class="m-b-25"> <img src="	https://audition.hanbiton.com/images/common/img_default.jpg" class="img-radius" alt="userProfile-Image"/> </div>
-                                                <h6 class="f-w-600">{name}</h6>
+                                            <div class="userBoard text-center text-white">
+                                                <div> <img src="https://audition.hanbiton.com/images/common/img_default.jpg" class="userImg" alt="userProfile-Image"/> </div>
+                                                <h6>{name}</h6>
                                                 <p>Return 19</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                                 <div class="button">
                                                 <Button type="submit" variant="light" onClick={logoutHandler} >Log out</Button>
                                                     </div>
                                             </div>
                                         </div>
-                                            <div class="userCardBlock2 text-center">
-                                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                            <div class="userInfo text-center">
+                                                <h6 class="subTitle">Information</h6>
                                                 <Form onSubmit={onSubmitHandler}>
                                                 <div class="infoRow">
                                                     <div >
-                                                        <div class="m-b-10 f-w-600">Email</div>
+                                                        <div class="label">Email</div>
                                                         <div class="f-w-400">{email}</div>
                                                     </div>
                                                     <div class="input">
-                                                        <label class="m-b-10 f-w-600">Birthday</label>
+                                                        <label class="label">Birthday</label>
                                                         <Form.Control type="date"value={birthday} onChange={handleInput("birthday")}/>
                                                     </div>
                                                     
                                                 </div>
-                                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Introduction</h6>
+                                                <h6 class="subTitle">Introduction</h6>
                                                 <div class="infoRow ">
                                                     <div class="input">
-                                                        <label class="m-b-10 f-w-600">Bio</label>
+                                                        <label class="label">Bio</label>
                                                         <Form.Control type="text" value={bio} onChange={handleInput("bio")} placeholder="About you"/>
                                                     </div>
                                                     <div class="input">
-                                                        <label class="m-b-10 f-w-600">Interest</label>
+                                                        <label class="label">Interest</label>
                                                         <Form.Control type="text" value={interest} onChange={handleInput("interest")} placeholder="Interested in"/>
 
                                                     </div>
                                                     <div class="input">
-                                                        <label class="m-b-10 f-w-600">URL</label>
+                                                        <label class="label">URL</label>
                                                         <Form.Control type="text" value={url} onChange={handleInput("url")} placeholder="Your Page"/>
                                                     </div>
                                                     <div class="button">
-                                                        <Button type="submit" variant="light" >Update Profile</Button>
+                                                        <Button type="submit" variant="light" >Update</Button>
                                                     </div>
                                                     
 
@@ -88,14 +88,6 @@ const StyleProfileForm = styled.div`
         align-contents: center;
 
     }
-    body {
-        background-color: #f9f9fa
-    }
-
-
-    .user-userCard-full {
-        overflow: hidden
-    }
 
     .userCard {
         border-radius: 5px;
@@ -105,44 +97,47 @@ const StyleProfileForm = styled.div`
         margin-bottom: 30px
     }
 
-    .user-userCard-full .userProfile {
-        border-radius: 5px 0 0 5px
-    }
-
-
     .userProfile {
+        border-radius: 5px 0 0 5px
         padding: 20px 0
-        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-        background: linear-gradient(to right, #6644df, #901ea7)
+        background: -webkit-gradient(linear, left top, right top, from(#91A8D2), to(#F6CAC9));
+        background: linear-gradient(45deg, #F6CAC9, #91A8D2);
+      
+
     }
 
-    .userCardBlock1 {
+    .userBoard {
         padding: 1.25rem;
         padding-top:3rem;
         width:200px;
 
     }
-    .userCardBlock2{
+    .userBoard h6{
+        font-size:20px;
+    }
+    .userInfo{
         padding: 1.25rem;
         width:500px;
     }
-    
-
-    .m-b-25 {
-        margin-bottom: 25px
+    .label{
+        margin-bottom: 10px;
+        font-weight:700;
+        color: #91A8D2
     }
-
-    .img-radius {
+    .userImg {
         width:100px;
-        border-radius: 10px
+        border-radius: 10px;
+        margin-bottom:25px;
     }
+  
+    .subTitle{
+        padding-bottom: 5px !important;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #282828;
+        padding-top:20px;
+        color: #1e1e1e
+        font-weight:700
 
-    h6 {
-        font-size: 14px
-    }
-
-    .userCard .userCard-block p {
-        line-height: 25px
     }
 
     @media only screen and (min-width: 1400px) {
@@ -151,72 +146,6 @@ const StyleProfileForm = styled.div`
         }
     }
 
-    .userCard-block {
-        padding: 1.25rem
-    }
-
-    .b-b-default {
-        border-bottom: 1px solid #e0e0e0
-    }
-
-    .m-b-20 {
-        margin-bottom: 10px
-    }
-
-    .p-b-5 {
-        padding-bottom: 5px !important
-    }
-
-    .userCard .userCard-block p {
-        line-height: 25px
-    }
-
-    .m-b-10 {
-        margin-bottom: 5px
-    }
-
-    .text-muted {
-        color: #919aa3 !important
-    }
-
-    .b-b-default {
-        border-bottom: 1px solid #e0e0e0
-    }
-
-    .f-w-600 {
-        font-weight: 600
-    }
-
-    .m-b-20 {
-        margin-bottom: 20px
-    }
-
-    .m-t-40 {
-        margin-top: 20px
-    }
-
-    .p-b-5 {
-        padding-bottom: 5px !important
-    }
-
-    .m-b-10 {
-        margin-bottom: 10px
-    }
-
-    .m-t-40 {
-        margin-top: 20px
-    }
-
-    .user-userCard-full .social-link li {
-        display: inline-block
-    }
-
-    .user-userCard-full .social-link li a {
-        font-size: 20px;
-        margin: 0 10px 0 0;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out
-    }
     label{
         margin-top:15px;
         display:block;
@@ -232,6 +161,11 @@ const StyleProfileForm = styled.div`
         width:200px;
     }
     button{
-        font-weight: 600
+        font-weight: 600;
+        border-radius: 20px;
+        background-color:#91A8D2;
+        border: 3px solid #91A8D2;
+        color: white;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
     }
 `;
