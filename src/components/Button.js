@@ -2,16 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-    width: 8rem;
-    height: 2rem;
-    font-size: 0.875rem;
-    cursor: pointer;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+    font-family: "Noto Sans KR", sans-serif;
     border: none;
-    border-radius: 4px;
-    outline: none;
-    text-align: center;
+    border-radius: 25px;
+    width: 200px;
+    height: 40px;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 600;
+    background: #91A8D1;
+    background: linear-gradient(
+        90deg,
+        #91A8D1 0%,
+        #F6CAC9 100%
+    );
 `;
 
 
