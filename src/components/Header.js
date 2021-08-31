@@ -1,25 +1,34 @@
 import React from 'react'
-import mainIcon from "../assets/icons/mainIcon.svg";
+import mainLogo from "../assets/icons/mainLogo.svg";
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 const StyledHeader = styled.div`
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    heigth: 3rem;
-    border-bottom: 1px solid darkgrey;
+    height: 3rem;
     font-size: 1.1rem;
+    font-family: "Noto Sans KR", sans-serif;
     text-decoration: none;
     a:link { color: darkgrey; text-decoration: none;}
+    .header-icon-unvisible{
+        display: none;
+    }
+
 `;
 
 const Header = () => {
+    const path = window.location.pathname;
+    const pageName = path.slice(-2, path.length);
+    console.log(pageName);
     return (
         <StyledHeader>
             <Link to = "/">
-                <img className="header-icon" alt="icon" src={mainIcon} width="150" height="150"/>
+                <img className={"header-icon" + (pageName === "/" ? '-unvisible' : '')}alt="icon" src={mainLogo} width="150" height="150"/>
             </Link>
             <nav className="header-nav">         
                 <Link to = "/members">Members | </Link>
