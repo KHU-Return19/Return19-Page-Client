@@ -19,6 +19,7 @@ const Router = () => {
             <Route exact path="/members" component={Auth(MemberPage,true)} />
             <Route exact path="/profile" component={Auth(ProfilePage,true)} />
             <Route exact path="/CalendarPage" component={CalendarPage} />
+              
             <Route path="/">404 not found</Route>
         </Switch>
     );
