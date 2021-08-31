@@ -6,23 +6,23 @@ const LoginForm = (props)=>{
     return(
         <>
         <StyleLoginForm>
-            <div class="loginForm">
-                <h2 class="headerTitle">Login</h2>
+            <div class="authForm">
+                <h2 class="authFormTitle">Login</h2>
                 <form onSubmit={onSubmitHandler}>
-                    <div class="row">
+                    <div class="authFormRow">
                         <label>Email</label>
                         <input type="email" value={email} onChange={handleInput("email")} placeholder="Enter your Email" required />
                     </div>
-                    <div class="row">
+                    <div class="authFormRow">
                         <label>Password</label>
                         <input type="password" value={password} onChange={handleInput("password")} placeholder="Enter your password" required/>
                     </div>
                     
-                    <div class="button row">
+                    <div class="authFormBtn authFormBtn1 authFormRow">
                     <button type="submit">Log in</button>
                     </div>
                 </form>
-                <div class="signupbtn row">     
+                <div class="authFormBtn authFormBtn2 authFormRow">     
                     <button><Link to = "/signup">Sign up</Link></button>
                 </div>
             </div>
@@ -33,35 +33,35 @@ const LoginForm = (props)=>{
 
 export default LoginForm
 
-const StyleLoginForm = styled.div`
+    const StyleLoginForm = styled.div`
     @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-    html {
-    font-size: 100%;
-    }
 
     font-family: "Noto Sans KR", sans-serif;
     }
 
-    .loginForm {
+    .authForm {
     max-width: 500px;
-    min-width: 300px;
+    min-width: 400px;
     max-height: 700px;
-    width: 30%;
+    width: 20%;
     height: 60%;
     margin: 100px auto;
     background-color: white;
     border-radius: 25px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.1);
     }
 
-    .headerTitle {
+    .authFormTitle {
     text-align: center;
     font-family: "open sans", sans-serif;
     padding: 2rem 0;
     margin: 0;
     font-size: 2rem;
+    font-weight: 700;
+
     }
 
-    .row {
+    .authFormRow {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,7 +69,7 @@ const StyleLoginForm = styled.div`
     max-width: 100%;
     }
 
-    .row input {
+    .authFormRow input {
     width: 80%;
     box-sizing: border-box;
     border: none;
@@ -80,35 +80,35 @@ const StyleLoginForm = styled.div`
     transition: box-shadow 0.2s ease-in;
     }
 
-    .row input:focus {
+    .authFormRow input:focus {
     box-shadow: inset 0px -3px 0px 0px rgba(144, 30, 167);
     outline: none;
     }
 
-    .row input::-webkit-input-placeholder {
+    .authFormRow input::-webkit-input-placeholder {
     opacity: 1;
     transition: opacity 0.25s ease-out;
     }
 
-    .row input:hover::-webkit-input-placeholder,
-    .row input:focus::-webkit-input-placeholder {
+    .authFormRow input:hover::-webkit-input-placeholder,
+    .authFormRow input:focus::-webkit-input-placeholder {
     opacity: 0;
     }
 
-    .row label {
+    .authFormRow label {
     align-self: start;
     padding-left: 4.5rem;
     padding-bottom: 0.5rem;
     color: rgba(187, 187, 187, 0.9);
     }
 
-    .row button {
+    .authFormRow button {
     border-radius: 25px;
     width: 80%;
     height: 40px;
     font-size: 1.3rem;
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     background: rgb(117, 17, 156);
     background: linear-gradient(
         90deg,
@@ -120,16 +120,17 @@ const StyleLoginForm = styled.div`
     transition: opacity 0.25s ease-out;
     }
 
-    .row button:hover {
+    .authFormRow button:hover {
     opacity: 0.8;
     }
 
-    .button {
-    padding-top: 2rem;
+    .authFormBtn {
+    padding-top: 1rem;
     padding-bottom: 0.1rem;
     }
-    
-    .signupbtn button{
+
+    .authFormBtn2 button{
+        
         background: rgb(202, 151, 11) ;
         background: linear-gradient(
             90deg,
@@ -137,9 +138,17 @@ const StyleLoginForm = styled.div`
             rgba(38, 136, 201) 100%
         );
     }
+    .authFormBtn2{
+        padding-bottom: 2rem;
+    }
     a{
         text-decoration:none;
         color : #FFFFFF;
+        width:100%;
+        text-align:center;
+    }
+    .authFormBtn1 {
+        padding-top:2rem;
     }
 
 `;

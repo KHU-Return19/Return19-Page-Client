@@ -12,9 +12,9 @@ const ProfileForm = (props)=>{
         <>
             <StyleProfileForm>     
                             <div class="profileBox">
-                                <div class="userCard user-userCard-full container">
-                                        <div class="bg-c-lite-green userProfile">
-                                            <div class="userCard-block userCard1 text-center text-white">
+                                <div class="userCard user-userCard-full profileContainer">
+                                        <div class="userProfile">
+                                            <div class="userCardBlock1 text-center text-white">
                                                 <div class="m-b-25"> <img src="	https://audition.hanbiton.com/images/common/img_default.jpg" class="img-radius" alt="userProfile-Image"/> </div>
                                                 <h6 class="f-w-600">{name}</h6>
                                                 <p>Return 19</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
@@ -23,7 +23,7 @@ const ProfileForm = (props)=>{
                                                     </div>
                                             </div>
                                         </div>
-                                            <div class="userCard-block userCard2 text-center">
+                                            <div class="userCardBlock2 text-center">
                                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                                 <Form onSubmit={onSubmitHandler}>
                                                 <div class="infoRow">
@@ -79,7 +79,7 @@ const StyleProfileForm = styled.div`
         margin: 100px auto;
 
     }
-    .container{
+    .profileContainer{
         display: flex;
         align-contents: center;
 
@@ -95,8 +95,8 @@ const StyleProfileForm = styled.div`
 
     .userCard {
         border-radius: 5px;
-        -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-        box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+        -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.2);
+        box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.2);
         border: none;
         margin-bottom: 30px
     }
@@ -105,26 +105,25 @@ const StyleProfileForm = styled.div`
         border-radius: 5px 0 0 5px
     }
 
-    .bg-c-lite-green {
+
+    .userProfile {
+        padding: 20px 0
         background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
         background: linear-gradient(to right, #6644df, #901ea7)
     }
 
-    .userProfile {
-        padding: 20px 0
-    }
-
-    .userCard-block {
+    .userCardBlock1 {
         padding: 1.25rem;
+        padding-top:3rem;
+        width:200px;
 
     }
-    .userCard1{
-        width:200px
-    }
-
-    .userCard2{
+    .userCardBlock2{
+        padding: 1.25rem;
         width:500px;
     }
+    
+
     .m-b-25 {
         margin-bottom: 25px
     }
@@ -227,5 +226,8 @@ const StyleProfileForm = styled.div`
     .input{
         margin:0px auto;
         width:200px;
+    }
+    button{
+        font-weight: 600
     }
 `;
