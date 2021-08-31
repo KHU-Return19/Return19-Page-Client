@@ -11,7 +11,7 @@ const MemberRender =(props)=>{
                 <div class="row">
                     <div class="memberTitle">
                         <h2 class="text-center">Return 19</h2>
-                        <p class="text-center">Wecome to Return 19 Page !</p>
+                        <p class="text-center">Welcome to Return 19 Page !</p>
                     </div>
                 </div>
                 <div class="row">
