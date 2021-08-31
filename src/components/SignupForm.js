@@ -46,11 +46,9 @@ export default SignupForm
 
 const StyleSignupForm = styled.div`
     @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-    html {
-    font-size: 100%;
-    }
 
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: {
+        "Noto Sans KR", sans-serif;
     }
 
     .signupForm {
