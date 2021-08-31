@@ -22,10 +22,10 @@ const Header = () => {
                 <img className="header-icon" alt="icon" src={mainIcon} width="150" height="150"/>
             </Link>
             <nav className="header-nav">         
-                <Link to = "/Members">Members | </Link>
+                <Link to = "/members">Members | </Link>
                 <Link to = "/Ongoing">Ongoing | </Link>
                 <Link to = "/Calender">Calender | </Link>       
-                <Link to = "/Profile">Profile</Link> 
+                <Link to = "/profile">Profile</Link> 
                 {/* 후에 프로필 사진으로 교체 */} 
             </nav>
         </StyledHeader>

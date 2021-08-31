@@ -10,7 +10,7 @@ const LandingPage = () => {
     return (
         <Wrapper>
             <Welcome />
-            <Link to="/SignUpPage">
+            <Link to="/signup">
                 <Button color="lightgrey">SIGN UP</Button>
             </Link>
         </Wrapper>

@@ -9,13 +9,12 @@ const Wrapper = styled.div`
 `;
 
 const Home = () => {
-    const token = localStorage.getItem('accessToken');
-    return token ? 
-    <Wrapper>
-        <Header/>
-        <Welcome/>
-    </Wrapper>
-    : <Redirect to="/LandingPage"/>
+    return (
+        <Wrapper>
+            <Header/>
+            <Welcome/>
+        </Wrapper>
+   )
 };
 
 export default Home;
