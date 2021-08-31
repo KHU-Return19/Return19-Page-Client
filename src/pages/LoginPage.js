@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router';
 import LoginForm from '../components/LoginForm';
-import styled from "styled-components"
 
 const LoginPage = (props) => {
     const [email, setEmail] = useState("")
