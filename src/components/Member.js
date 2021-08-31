@@ -77,6 +77,7 @@ export default Member
     }
     .col-md-4{
         width: 100%;
+       
     }
 
 `

@@ -11,7 +11,7 @@ const MemberRender =(props)=>{
                 <div class="row">
                     <div class="memberTitle">
                         <h2 class="text-center">Return 19</h2>
-                        <p class="text-center">Welcome to Return 19 Page !</p>
+                        <p class="text-center">This is Return19!</p>
                     </div>
                 </div>
                 <div class="row">
@@ -41,9 +41,9 @@ const StyleMemberRender = styled.div`
             margin: 20px auto 20px;
             border-left: 3px solid #ddd;
             border-right: 3px solid #ddd;
-            border-top: 3px solid #007bff;
-            border-bottom: 3px solid #007bff;
-            transform: rotate(-30deg);
+            border-top: 3px solid #91A8D2;
+            border-bottom: 3px solid #91A8D2;
+            transform: rotate(-20deg);
             transition: 0.5s;
         }
         .card-box:hover .user-pic {
@@ -60,13 +60,13 @@ const StyleMemberRender = styled.div`
             transition: 0.5s;
         }
         .card-box:hover {
-            border: 1px solid #007bff;
+            border: 1px solid #91A8D2;
         }
         .card-box p {
             color: #808080;
         }
         h6{
-            color:#0d6efd;
+            color:#91A8D2;
             font-weight:600
         }
 
@@ -77,5 +77,17 @@ const StyleMemberRender = styled.div`
         h2{
             font-weight:700
         }
-
+        .btn-primary{
+            width:100px;
+            background: linear-gradient(
+                90deg,
+                #91A8D2 0%,
+                #F6CAC9 100%
+            );
+            border:none;
+            border-radius:22px;
+        }
+        .memberTitle{
+            color:#282828;
+        }
 `

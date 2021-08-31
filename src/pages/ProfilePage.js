@@ -21,11 +21,13 @@ const ProfilePage = (props) =>{
         })
     }
 
- 
-    useEffect(() =>{
+    useEffect(() =>{ 
+        
+            axios.defaults.headers.common['Authorization'] = props.userId;
             axios.get("/api/user/profile")
             .then(response =>{
                 if(response.data.success){
+                    console.log(response.data)
                     setInputs({
                         name: response.data.user.name,
                         bio : response.data.user.bio,
@@ -39,6 +41,7 @@ const ProfilePage = (props) =>{
                 }
                 
             })
+            .catch( response => { console.log(response) } );
     }, [])
 
     const onSubmitHandler = (event)=>{
@@ -51,9 +54,9 @@ const ProfilePage = (props) =>{
             birthday : inputs.birthday
 
         }
+
         axios.put("/api/user/profile/update",body)
         .then((response)=>{
-            console.log(response)
             if(response.data.success){
                 props.history.push("/profile")
                 alert("업데이트 완료 :)")
