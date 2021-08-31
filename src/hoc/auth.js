@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function (SpecificComponent, option, adminRoute = null) {
-
+export default function (Component, option, adminRoute = null) {
     function AuthenticationCheck(props) {
-      
+        const [userId, setUserId] = useState("")
         useEffect(() => {
             axios.get("/api/user/auth").then(response => {
                 if (!response.data.isAuth) {
                     if (option) {
                         props.history.push('/LandingPage')
+                        
                     }
                 } else {
                     if (option === false)
                             props.history.push('/')
+                    setUserId(response.data._id)
                 }
             })
         }, [])
-
         return (
-            <SpecificComponent />
+            <Component userId={userId}/>
         )
     }
     return AuthenticationCheck
