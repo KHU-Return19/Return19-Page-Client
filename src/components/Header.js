@@ -24,7 +24,6 @@ const StyledHeader = styled.div`
 const Header = () => {
     const path = window.location.pathname;
     const pageName = path.slice(-2, path.length);
-    console.log(pageName);
     return (
         <StyledHeader>
             <Link to = "/">
@@ -32,8 +31,8 @@ const Header = () => {
             </Link>
             <nav className="header-nav">         
                 <Link to = "/members">Members | </Link>
-                <Link to = "/Ongoing">Ongoing | </Link>
-                <Link to = "/Calender">Calender | </Link>       
+                <Link to = "/ongoing">Ongoing | </Link>
+                <Link to = "/calender">Calender | </Link>       
                 <Link to = "/profile">Profile</Link> 
                 {/* 후에 프로필 사진으로 교체 */} 
             </nav>
