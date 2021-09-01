@@ -7,6 +7,7 @@ import weekday from 'dayjs/plugin/weekday';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 
+
 // constants
 const WEEKS_OF_YEAR = 52;
 const IF_WEEK_GOES_NEXTYEAR = 1;
@@ -17,16 +18,22 @@ dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 
 
-const Calendar = ({selectDate, setSelectDate}) => {
+
+const Calendar = ({selectDate, setSelectDate, openModal}) => {
 
   const today = dayjs();
   const [viewDate, setViewDate] = useState(dayjs());
+
+  const handleModal = (current) => {
+    setSelectDate(current);
+    openModal();
+  }
 
   const createCalendar = () => {
     const startWeek = viewDate.startOf('month').week();
     const lastWeek = viewDate.endOf('month').week() === IF_WEEK_GOES_NEXTYEAR ? WEEKS_OF_YEAR + 1 : viewDate.endOf('month').week();
     let calender = [];
-
+    
 
     for (let week = startWeek; week <= lastWeek; week++) {
       calender.push(
@@ -43,7 +50,7 @@ const Calendar = ({selectDate, setSelectDate}) => {
             return (
               <>
                 <div className={`box`} key={`${week}_${i}`} >
-                  <div className={`text ${isSelected} ${isToday} ${isNone}`} onClick={() => setSelectDate(current)}>
+                  <div className={`text ${isSelected} ${isToday} ${isNone}`} onClick={() => handleModal(current)}>
                     <span className={`day`}>{current.format('D')}</span>
                     {isToday ? (<span className="isToday">Today</span>)
                       : isSelected ? (<span className="isSelected"></span>) : null}
