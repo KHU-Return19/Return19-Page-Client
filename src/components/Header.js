@@ -9,16 +9,29 @@ const StyledHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 1rem;
     width: 100%;
-    height: 3rem;
     font-size: 1.1rem;
     font-family: "Noto Sans KR", sans-serif;
     text-decoration: none;
-    a:link { color: darkgrey; text-decoration: none;}
+    a:link, a:visited { color: darkgrey; text-decoration: none; padding: 1rem;}
     .header-icon-unvisible{
         display: none;
     }
 
+    a:hover, a:active {
+        
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        a:link { color: darkgrey; text-decoration: none;}
+        }
+    .seperator {
+        color: darkgrey;
+    }    
 `;
 
 const Header = () => {
@@ -30,9 +43,12 @@ const Header = () => {
                 <img className={"header-icon" + (pageName === "/" ? '-unvisible' : '')}alt="icon" src={mainLogo} width="150" height="150"/>
             </Link>
             <nav className="header-nav">         
-                <Link to = "/members">Members | </Link>
-                <Link to = "/ongoing">Ongoing | </Link>
-                <Link to = "/calender">Calender | </Link>       
+                <Link to = "/members">Members</Link>
+                <span className="seperator">|</span>
+                <Link to = "/ongoing">Ongoing</Link>
+                <span className="seperator">|</span>
+                <Link to = "/calender">Calender</Link>       
+                <span className="seperator">|</span>
                 <Link to = "/profile">Profile</Link> 
                 {/* 후에 프로필 사진으로 교체 */} 
             </nav>

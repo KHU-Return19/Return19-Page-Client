@@ -177,19 +177,19 @@ const StyledCalendarBody = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-background : lightgrey;
+background : #F6CAC9;
     font-weight: 700;
     color: #fff;
   }
   .today{
     border-radius: 50%;
     font-weight: 500;
-    background: #282828;
+    background: #91A8D2;
     color: #fff;
   }
   .isSelected{
     position: relative;
-    color: ligtgrey;
+    color: #F6CAC9;
     font-size: 10px;
     font-weight: 400;
   }
