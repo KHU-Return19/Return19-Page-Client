@@ -79,7 +79,7 @@ const CalendarPage = () => {
         })}
       </Modal>
       <Link to="/addEvent">
-        <Button>Add Event</Button>
+        <Button width={"40px"} fontSize={"1.6rem"}>+</Button>
       </Link>
     </>
   )
