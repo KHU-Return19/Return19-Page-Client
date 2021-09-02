@@ -19,7 +19,7 @@ dayjs.extend(weekOfYear);
 
 
 
-const Calendar = ({selectDate, setSelectDate, openModal}) => {
+const Calendar = ({selectDate, setSelectDate, openModal, eventList}) => {
 
   const today = dayjs();
   const [viewDate, setViewDate] = useState(dayjs());
@@ -33,7 +33,6 @@ const Calendar = ({selectDate, setSelectDate, openModal}) => {
     const startWeek = viewDate.startOf('month').week();
     const lastWeek = viewDate.endOf('month').week() === IF_WEEK_GOES_NEXTYEAR ? WEEKS_OF_YEAR + 1 : viewDate.endOf('month').week();
     let calender = [];
-    
 
     for (let week = startWeek; week <= lastWeek; week++) {
       calender.push(
@@ -91,7 +90,7 @@ const Calendar = ({selectDate, setSelectDate, openModal}) => {
           <div className="box"><span className="text">MON</span></div>
           <div className="box"><span className="text">TUE</span></div>
           <div className="box"><span className="text">WED</span></div>
-          <div className="box"><span className="text">THU</span></div>
+          <div className="box"><span className="text">THU</span></div>            
           <div className="box"><span className="text">FRI</span></div>
           <div className="box"><span className="text">SAT</span></div>
         </div>
@@ -110,7 +109,8 @@ const StyledCalendarHeader = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 20px;
+  margin: auto;
+  max-width: 800px;
   .thisMonth{
     font-weight: 700;
     color: #292929;
@@ -135,7 +135,8 @@ const StyledCalendarHeader = styled.div`
 
 const StyledCalendarBody = styled.div`
   text-align: center;
-  margin: 20px;
+  margin: auto;
+  max-width: 800px;
   .row{
     display: flex;
     justify-content: space-between;
@@ -144,7 +145,7 @@ const StyledCalendarBody = styled.div`
     width: 100%;
   }
   .row.week{
-    height: 18px;
+    height: 2rem;
     border-bottom: 1px solid #E8E8E8;
   }
   .box{
@@ -183,7 +184,8 @@ background : lightgrey;
   .today{
     border-radius: 50%;
     font-weight: 500;
-    background : grey;
+    background: #282828;
+    color: #fff;
   }
   .isSelected{
     position: relative;
