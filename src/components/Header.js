@@ -19,8 +19,10 @@ const StyledHeader = styled.div`
         display: none;
     }
 
-    a:hover, a:active {
-        
+    .nav-element:hover {
+        font-size: 1.2rem;
+        color: darkgrey;
+        transition: .2s;
     }
 
     .nav {
@@ -43,13 +45,13 @@ const Header = () => {
                 <img className={"header-icon" + (pageName === "/" ? '-unvisible' : '')}alt="icon" src={mainLogo} width="150" height="150"/>
             </Link>
             <nav className="header-nav">         
-                <Link to = "/members">Members</Link>
+                <Link to = "/members" className="nav-element">Members</Link>
                 <span className="seperator">|</span>
-                <Link to = "/ongoing">Ongoing</Link>
+                <Link to = "/ongoing" className="nav-element">Ongoing</Link>
                 <span className="seperator">|</span>
-                <Link to = "/calender">Calender</Link>       
+                <Link to = "/calender" className="nav-element">Calender</Link>       
                 <span className="seperator">|</span>
-                <Link to = "/profile">Profile</Link> 
+                <Link to = "/profile" className="nav-element">Profile</Link> 
                 {/* 후에 프로필 사진으로 교체 */} 
             </nav>
         </StyledHeader>

@@ -21,15 +21,10 @@ dayjs.extend(weekOfYear);
 
 
 
-const Calendar = ({selectDate, setSelectDate, openModal, eventList}) => {
+const Calendar = ({selectDate, setSelectDate, eventList}) => {
 
   const today = dayjs();
   const [viewDate, setViewDate] = useState(dayjs());
-
-  const handleModal = (current) => {
-    setSelectDate(current);
-    openModal();
-  }
 
   const createCalendar = () => {
     const startWeek = viewDate.startOf('month').week();
@@ -51,7 +46,7 @@ const Calendar = ({selectDate, setSelectDate, openModal, eventList}) => {
             return (
               <>
                 <div className={`box`} key={`${week}_${i}`} >
-                  <div className={`text ${isSelected} ${isToday} ${isNone}`} onClick={() => handleModal(current)}>
+                  <div className={`text days ${isSelected} ${isToday} ${isNone}`} onClick={() => setSelectDate(current)}>
                     <span className={`day`}>{current.format('D')}</span>
                     {isToday ? (<span className="isToday">Today</span>)
                       : isSelected ? (<span className="isSelected"></span>) : null}
@@ -167,6 +162,11 @@ const StyledCalendarBody = styled.div`
     width: 32px;
     height: 32px;
     color: #292929;
+    cursor: pointer;
+  }
+  .days:hover{
+    font-size: 20px;
+    transition: .1s;
   }
   .holiday,
   .grayed{
