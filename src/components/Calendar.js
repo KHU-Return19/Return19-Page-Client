@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
+import dayjs from 'dayjs';
 import previous from '../assets/icons/previous_arrow.svg';
 import next from '../assets/icons/next_arrow.svg';
-import dayjs from 'dayjs';
+import Button from '../components/Button';
 import weekday from 'dayjs/plugin/weekday';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
@@ -97,7 +99,13 @@ const Calendar = ({selectDate, setSelectDate, openModal, eventList}) => {
         <div>
           {createCalendar()}
         </div>
+        <StyledCalendarFooter>
+          <Link to="/addSchedule" >
+                <Button width={"40px"} fontSize={"1.6rem"}>+</Button>
+          </Link>
+        </StyledCalendarFooter>
       </StyledCalendarBody>
+
     </>
   )
 }
@@ -177,7 +185,7 @@ const StyledCalendarBody = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-background : #F6CAC9;
+    background : #F6CAC9;
     font-weight: 700;
     color: #fff;
   }
@@ -202,4 +210,9 @@ background : #F6CAC9;
   .none{
     display: none;
   }
+`;
+
+const StyledCalendarFooter = styled.div`
+  display: inline-block;
+  float: right;
 `;

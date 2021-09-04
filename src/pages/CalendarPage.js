@@ -1,11 +1,9 @@
 import { React, useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import Header from '../components/Header';
 import Calendar from "../components/Calendar";
 import Modal from '../components/Modal';
-import Button from '../components/Button';
 import Event from '../components/Event';
 
 
@@ -78,9 +76,6 @@ const CalendarPage = () => {
           return <Event date={event.date} content={event.info}/>
         })}
       </Modal>
-      <Link to="/addEvent">
-        <Button width={"40px"} fontSize={"1.6rem"}>+</Button>
-      </Link>
     </>
   )
 }
