@@ -9,6 +9,8 @@ import ProfilePage from './pages/ProfilePage';
 import Auth from "./hoc/auth"
 import CalendarPage from './pages/CalendarPage';
 import AddSchedulePage from './pages/AddSchedulePage';
+import ModifySchedulePage from './pages/ModifySchedulePage';
+import OngoingPage from './pages/OngoingPage';
 
 const Router = () => {
     return (
@@ -21,7 +23,9 @@ const Router = () => {
             <Route exact path="/profile" component={Auth(ProfilePage,true)} />
             <Route exact path="/calendar" component={CalendarPage} />
             <Route exact path="/addSchedule" component={AddSchedulePage} />
-              
+            <Route exact path="/modifySchedule" component={ModifySchedulePage} />
+            <Route exact path="/ongoing" component={OngoingPage} />
+
             <Route path="/">404 not found</Route>
         </Switch>
     );

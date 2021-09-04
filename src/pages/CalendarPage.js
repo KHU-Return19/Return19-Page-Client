@@ -1,16 +1,16 @@
 import { React, useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import styled from 'styled-components';
 import Header from '../components/Header';
 import Calendar from "../components/Calendar";
-import Modal from '../components/Modal';
-import Event from '../components/Event';
+import Schedule from '../components/Schedule';
 
 
 const CalendarPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectDate, setSelectDate] = useState(dayjs());
-  const [eventList, setEventList] = useState([
+  const [scheduleList, setScheduleList] = useState([
     { "date" : "2021-08-30",
     "info" : "일정",
     "userid" : "유저고유id" },
@@ -20,19 +20,10 @@ const CalendarPage = () => {
     "userid" : "유저고유id" }
 ]);
 
-  const openModal = () => {
-    setIsModalOpen(true);
+  const scheduleListToday = () => {
+    const scheduleToday = scheduleList.filter(schedule => schedule.date === selectDate.format('YYYY-MM-DD'));
+    return scheduleToday;
   }
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  }
-
-  const eventListToday = () => {
-    const eventToday = eventList.filter(event => event.date === selectDate.format('YYYY-MM-DD'));
-    return eventToday;
-  }
-
   /*
   const EventRender = async () => {
     try {
@@ -48,12 +39,12 @@ const CalendarPage = () => {
   }
 */
 
-  const EventRender = () => {
+  const ScheduleRender = () => {
     axios
       .get("/api/calendar/")
       .then((res) => {
         if(res.data.success) {
-          setEventList(res.calendar_list)
+          setScheduleList(res.calendar_list)
         }
         else {
           console.log(res.data)
@@ -63,21 +54,50 @@ const CalendarPage = () => {
   };
 
   useEffect(() => {
-    EventRender();
+    ScheduleRender();
   },[]);
 
   return (
     <>
       <Header />
-      <Calendar selectDate={selectDate} setSelectDate={setSelectDate} openModal={openModal} eventList={eventList}/>
-      <Modal isOpen={ isModalOpen } close={ closeModal }>
-        <b>{selectDate.format('MM/DD')} Events </b>
-        {eventListToday().map(event => {
-          return <Event date={event.date} content={event.info}/>
+      <Calendar selectDate={selectDate} setSelectDate={setSelectDate} scheduleList={scheduleList}/>
+      <ScheduleContainer>
+        <ScheduleContainerTitle>{selectDate.format('MM/DD')} Schedule</ScheduleContainerTitle>
+        {scheduleListToday().map(schedule => {
+          return ( 
+            <Link to={{
+              pathname: "./modifySchedule",
+              state : {
+                date:`${selectDate.format('YYYY-MM-DD')}`,
+                schedule: `${schedule.info}`
+              }
+            }} >
+            <Schedule date={selectDate.format('MM/DD')} content={schedule.info} id={schedule.userid}/>
+          </Link>)
         })}
-      </Modal>
+      </ScheduleContainer>
+
     </>
   )
 }
 
 export default CalendarPage;
+
+const ScheduleContainer = styled.div`
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  max-width: 700px;
+  a:link {
+    color: #282828;
+    text-decoration: none;
+  }
+`;
+
+const ScheduleContainerTitle = styled.div`
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+`;
+
