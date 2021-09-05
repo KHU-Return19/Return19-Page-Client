@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import ModifyScheduleForm from '../components/ModifyScheduleForm'
 import Modal from '../components/Modal';
 import axios from 'axios';
@@ -7,8 +8,10 @@ const ModifySchedulePage = (props) => {
     const [date, setDate] = useState(props.location.state.date);
     const [schedule, setSchedule] = useState(props.location.state.schedule);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const goBack = (props) => {
-        props.history.goBack();
+    const history = useHistory();
+
+    const goBack = () => {
+        history.goBack();
     }
 
     const handleInput = (type) => (event) => {
@@ -38,7 +41,8 @@ const ModifySchedulePage = (props) => {
             const success = response.data.success;
             success ? (console.log("done")) : (alert(response.data.msg))
         })
-        .catch((error) => {console.log(error)});
+        .catch((error) => {console.log(error)})
+        .then(backToCalendar);
     }
 
     const backToCalendar = () => {
