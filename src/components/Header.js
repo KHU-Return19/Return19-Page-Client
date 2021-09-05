@@ -49,7 +49,7 @@ const Header = () => {
                 <span className="seperator">|</span>
                 <Link to = "/ongoing" className="nav-element">Ongoing</Link>
                 <span className="seperator">|</span>
-                <Link to = "/calender" className="nav-element">Calender</Link>       
+                <Link to = "/calendar" className="nav-element">Calender</Link>       
                 <span className="seperator">|</span>
                 <Link to = "/profile" className="nav-element">Profile</Link> 
                 {/* 후에 프로필 사진으로 교체 */} 

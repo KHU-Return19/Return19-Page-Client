@@ -44,7 +44,7 @@ const CalendarPage = () => {
       .get("/api/calendar/")
       .then((res) => {
         if(res.data.success) {
-          setScheduleList(res.calendar_list)
+          setScheduleList(res.data.calendar_list)
         }
         else {
           console.log(res.data)
