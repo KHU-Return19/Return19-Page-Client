@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import dayjs from 'dayjs';
 import AddScheduleForm from '../components/AddScheduleForm';
 import Modal from '../components/Modal';
@@ -8,9 +9,10 @@ const AddSchedulePage = (props) => {
     const [date, setDate] = useState(dayjs());
     const [schedule, setSchedule] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
-    const goBack = (props) => {
-        props.history.goBack();
+    const history = useHistory();
+
+    const goBack = () => {
+        history.goBack();
     }
 
     const handleInput = (type) => (event) => {

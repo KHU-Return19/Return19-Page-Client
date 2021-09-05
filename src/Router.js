@@ -11,6 +11,7 @@ import CalendarPage from './pages/CalendarPage';
 import AddSchedulePage from './pages/AddSchedulePage';
 import ModifySchedulePage from './pages/ModifySchedulePage';
 import OngoingPage from './pages/OngoingPage';
+import AddGroupPage from './pages/AddGroupPage';
 
 const Router = () => {
     return (
@@ -25,6 +26,7 @@ const Router = () => {
             <Route exact path="/addSchedule" component={AddSchedulePage} />
             <Route exact path="/modifySchedule" component={ModifySchedulePage} />
             <Route exact path="/ongoing" component={OngoingPage} />
+            <Route exact path="/addGroup" component={AddGroupPage} />
 
             <Route path="/">404 not found</Route>
         </Switch>
